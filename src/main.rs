@@ -1,5 +1,5 @@
 use rsh::RshLoop;
 
 fn main() {
-    println!("Hello, world!");
+    RshLoop::new().run().unwrap()
 }
