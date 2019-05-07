@@ -1,3 +1,5 @@
+use nix::unistd::chdir;
+use std::path::Path;
 use std::str::FromStr;
 
 pub struct RshLoop;
@@ -36,7 +38,7 @@ impl RshLoop {
             failure::bail!("Expected arg to cd")
         }
 
-        Ok(nix::unistd::chdir(std::path::Path::new(dir_path))?)
+        Ok(chdir(Path::new(dir_path))?)
     }
 
     fn exec_exec() -> Result<(), failure::Error> {
