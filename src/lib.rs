@@ -22,6 +22,25 @@ impl RshLoop {
         if args.is_empty() {
             failure::bail!("Input command!");
         }
+
+        match Commands::from_str(&args[0])? {
+            Commands::Cd => Self::exec_cd(&args[1]), // TODO error handle
+            Commands::Exec => Self::exec_exec(),
+            Commands::Exit => Self::exec_exit(),
+            Commands::Help => Self::exec_help(),
+        }
+    }
+
+    fn exec_cd(dir_path: &str) -> Result<(), failure::Error> {}
+
+    fn exec_exec() -> Result<(), failure::Error> {
+        Ok(())
+    }
+    fn exec_exit() -> Result<(), failure::Error> {
+        Ok(())
+    }
+    fn exec_help() -> Result<(), failure::Error> {
+        Ok(())
     }
 }
 
