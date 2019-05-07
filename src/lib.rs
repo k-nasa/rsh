@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 pub struct RshLoop;
 
 impl RshLoop {
@@ -31,7 +33,7 @@ enum Commands {
     Exec,
 }
 
-impl std::str::FromStr for Commands {
+impl FromStr for Commands {
     type Err = failure::Error;
 
     fn from_str(s: &str) -> Result<Commands, Self::Err> {
