@@ -31,7 +31,13 @@ impl RshLoop {
         }
     }
 
-    fn exec_cd(dir_path: &str) -> Result<(), failure::Error> {}
+    fn exec_cd(dir_path: &str) -> Result<(), failure::Error> {
+        if dir_path.is_empty() {
+            failure::bail!("Expected arg to cd")
+        }
+
+        Ok(nix::unistd::chdir(std::path::Path::new(dir_path))?)
+    }
 
     fn exec_exec() -> Result<(), failure::Error> {
         Ok(())
