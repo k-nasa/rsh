@@ -17,7 +17,9 @@ impl RshLoop {
     }
 
     fn exec(args: Vec<String>) -> Result<(), failure::Error> {
-        Ok(())
+        if args.is_empty() {
+            failure::bail!("Input command!");
+        }
     }
 }
 
