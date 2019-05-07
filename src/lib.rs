@@ -20,3 +20,24 @@ impl RshLoop {
         Ok(())
     }
 }
+
+#[derive(Debug)]
+enum Commands {
+    Cd,
+    Help,
+    Exit,
+    Exec,
+}
+
+impl std::str::FromStr for Commands {
+    type Err = failure::Error;
+
+    fn from_str(s: &str) -> Result<Commands, Self::Err> {
+        match s {
+            "cd" => Ok(Commands::Cd),
+            "help" => Ok(Commands::Help),
+            "exit" => Ok(Commands::Exit),
+            _ => Ok(Commands::Exec),
+        }
+    }
+}
