@@ -44,8 +44,10 @@ impl RshLoop {
     fn exec_exec() -> Result<(), failure::Error> {
         Ok(())
     }
+
     fn exec_exit() -> Result<(), failure::Error> {
-        Ok(())
+        println!("bye");
+        std::process::exit(0)
     }
     fn exec_help() -> Result<(), failure::Error> {
         Ok(())
