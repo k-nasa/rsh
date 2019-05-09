@@ -50,6 +50,7 @@ impl RshLoop {
         std::process::exit(0)
     }
     fn exec_help() -> Result<(), failure::Error> {
+        println!("support command is: cd, exit, help");
         Ok(())
     }
 }
